@@ -21,9 +21,10 @@ const ProtectedRoute = ({ children }) => {
         )
     }
 
-    if (!isAuthenticated) {
-        return <Navigate to="/login" replace />
-    }
+    // Commenting out authentication check - direct access to chatflows
+    // if (!isAuthenticated) {
+    //     return <Navigate to="/login" replace />
+    // }
 
     return children
 }

@@ -23,7 +23,7 @@ const AuthRoutes = {
     children: [
       {
         index: true,
-        element: <Navigate to="/login" replace />
+        element: <Navigate to="/chatflows" replace />
       },
       {
         path: 'login',
