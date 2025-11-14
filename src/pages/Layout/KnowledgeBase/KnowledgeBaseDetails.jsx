@@ -1,37 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Card, Container, Row, Col, Modal, Form, Button, Spinner } from 'react-bootstrap';
 import { useParams, useNavigate } from 'react-router-dom';
-import KnowledgeBaseService from '../../../services/knowledgeBaseService';
+import { useKnowledgeBaseContext } from '../../../context/KnowledgeBase';
 
 const KnowledgeBaseDetails = () => {
-
     const { id } = useParams();
     const navigate = useNavigate();
-
-    const [loaderList, setLoaderList] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const { loaderList, loading, error } = useKnowledgeBaseContext();
 
     const [selectedType, setSelectedType] = useState(null);
     const [formState, setFormState] = useState({});
 
-    const compid = localStorage.getItem("compid");
-
-    useEffect(() => {
-        KnowledgeBaseService.getAllKnowledgeBase(compid)
-            .then(res => {
-                if (res?.data?.data) {
-                    setLoaderList(res.data.data);
-                }
-            })
-            .finally(() => setLoading(false));
-    }, []);
-
     if (loading) return <p className="p-4"><Spinner size="sm" /> Loading...</p>;
+    if (error) return <p className="p-4 text-danger">Error: {error}</p>;
 
     // Find loader by URL id
     const selectedLoader = loaderList.find(l => l.id === id);
 
-    if (!selectedLoader) return <p>Loader not found.</p>;
+    if (!selectedLoader) return <p className="p-4">Loader not found.</p>;
 
     const handleChange = (field, value) => {
         setFormState(prev => ({ ...prev, [field]: value }));

@@ -13,6 +13,7 @@ import AICompanyModel from "./src/pages/AIModel/AICompanyModel";
 import AICompanyProvider from "./src/pages/AIModel/AICompanyProvider";
 import KnowledgeBase from "./src/pages/Layout/KnowledgeBase/KnowledgeBase";
 import KnowledgeBaseDetails from "./src/pages/Layout/KnowledgeBase/KnowledgeBaseDetails";
+import { KnowledgeBaseProvider } from "./src/context/KnowledgeBase";
 
   const AllRoutes = ({ msalInstance, signOutClickHandler }) => {
 
@@ -28,25 +29,27 @@ import KnowledgeBaseDetails from "./src/pages/Layout/KnowledgeBase/KnowledgeBase
     }
 
     return (
-      <Routes>
-        <Route path="/" element={initialElement} />
-        <Route path="/login" element={<Login msalInstance={msalInstance} />} />
-        <Route path="home" element={ <ProtectedRoute redirectTo={"/"}> <Layout signOutClickHandler={signOutClickHandler} /> </ProtectedRoute>}>
-          <Route path="" element={<Home />} />
-          <Route path="workflow" element={<Workflow />} />
-          <Route path="transaction" element={<Transaction/>}/>
-          <Route path="exploreTools" element={<ExploreTools/>} />
-          <Route path="uploadData" element={<UploadData/>} />
-          <Route path="user" element={<User/>} />
-          <Route path="aicompanymodels" element={<AICompanyModel/>} />
-          <Route path="aicompanymodelproviders" element={<AICompanyProvider/>} />
+      <KnowledgeBaseProvider>
+        <Routes>
+          <Route path="/" element={initialElement} />
+          <Route path="/login" element={<Login msalInstance={msalInstance} />} />
+          <Route path="home" element={ <ProtectedRoute redirectTo={"/"}> <Layout signOutClickHandler={signOutClickHandler} /> </ProtectedRoute>}>
+            <Route path="" element={<Home />} />
+            <Route path="workflow" element={<Workflow />} />
+            <Route path="transaction" element={<Transaction/>}/>
+            <Route path="exploreTools" element={<ExploreTools/>} />
+            <Route path="uploadData" element={<UploadData/>} />
+            <Route path="user" element={<User/>} />
+            <Route path="aicompanymodels" element={<AICompanyModel/>} />
+            <Route path="aicompanymodelproviders" element={<AICompanyProvider/>} />
 
-          {/* New routes */}
-          <Route path="knowledgebase" element={<KnowledgeBase />} />
-          <Route path="knowledgebase/:id" element={<KnowledgeBaseDetails />} />
-        </Route>
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
+            {/* New routes */}
+            <Route path="knowledgebase" element={<KnowledgeBase />} />
+            <Route path="knowledgebase/:id" element={<KnowledgeBaseDetails />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </KnowledgeBaseProvider>
     );
   };
 
