@@ -49,6 +49,8 @@ export const API_ENDPOINTS = {
   },
   KNOWLEDGE_BASE: {
     GET_KNOWLEDGE_BASE: `${API_BASE_URL}/knowledgebase/api/v1/get_kbs`,
+    GET_KNOWLEDGE_BASE_LIST: `${API_BASE_URL}/knowledgebase/api/v1/list_kbs`,
+    SAVE_KNOWLEDGE_BASE: `${API_BASE_URL}/knowledgebase/api/v1/save`,
   },
 };
 

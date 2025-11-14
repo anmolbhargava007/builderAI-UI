@@ -51,6 +51,17 @@ html body {
     text-transform: none !important;
 }
 
+.back-button {
+    background-color: rgb(102, 85, 94) !important;
+    box-shadow: 2px 2px 8px 0px rgba(255, 0, 135, 0.32);
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    color: rgba(255, 255, 255, 1) !important;
+    border-radius: 24px !important;
+    border: none !important;
+    text-transform: none !important;
+}
+
 .button-status {
     background-color: rgba(255, 195, 0, 1) !important;
     box-shadow: 0px 0px 8px 0px rgba(255, 195, 1, 1);

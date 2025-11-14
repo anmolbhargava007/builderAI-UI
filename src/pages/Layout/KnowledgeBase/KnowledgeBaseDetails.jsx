@@ -1,45 +1,27 @@
-import React, { useState } from 'react';
-import { Card, Container, Row, Col, Modal, Form, Button, Spinner } from 'react-bootstrap';
+import React from 'react';
+import { Card, Container, Row, Col, Button, Spinner } from 'react-bootstrap';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useKnowledgeBaseContext } from '../../../context/KnowledgeBase';
+
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const KnowledgeBaseDetails = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const { loaderList, loading, error } = useKnowledgeBaseContext();
 
-    const [selectedType, setSelectedType] = useState(null);
-    const [formState, setFormState] = useState({});
-
     if (loading) return <p className="p-4"><Spinner size="sm" /> Loading...</p>;
     if (error) return <p className="p-4 text-danger">Error: {error}</p>;
 
-    // Find loader by URL id
     const selectedLoader = loaderList.find(l => l.id === id);
-
     if (!selectedLoader) return <p className="p-4">Loader not found.</p>;
-
-    const handleChange = (field, value) => {
-        setFormState(prev => ({ ...prev, [field]: value }));
-    };
-
-    const handleSave = () => {
-        console.log("Saved Config:", {
-            loaderId: id,
-            typeId: selectedType.id,
-            config: formState
-        });
-
-        setFormState({});
-        setSelectedType(null);
-    };
 
     return (
         <Container className="py-4">
 
             <Button
                 variant="secondary"
-                className="mb-3"
+                className="mb-3 back-button"
                 onClick={() => navigate('/home/knowledgebase')}
             >
                 ← Back
@@ -51,47 +33,41 @@ const KnowledgeBaseDetails = () => {
                 {selectedLoader.types.map(type => (
                     <Col md={3} key={type.id} className="mb-4">
                         <Card
-                            className="p-3 text-center"
+                            className="workflow-card h-100 p-2"
                             style={{ cursor: "pointer" }}
-                            onClick={() => {
-                                setSelectedType(type);
-                                setFormState({});
-                            }}
+                            onClick={() => navigate(`/home/knowledgebase/${id}/${type.id}`)}
                         >
-                            <h6>{type.name}</h6>
+                            <Card.Body style={{ paddingBottom: "0px" }}>
+
+                            <div className="card-heading mb-2 d-flex justify-content-between align-items-center">
+                                    <div className="d-flex align-items-center gap-2">
+                                        <img
+                                            src={`${API_BASE_URL}${type.icon}`}
+                                            width={32}
+                                            height={32}
+                                            style={{ objectFit: "contain" }}
+                                        />
+                                        <span className="workflow-name">
+                                            {type.name}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <span className="workflow-desc text-muted">
+                                    Configure {type.name} data source
+                                </span>
+
+                                <div className="card-footers mt-2">
+                                    <span className="text-muted date-font">
+                                        Type ID: {type.id}
+                                    </span>
+                                </div>
+
+                            </Card.Body>
                         </Card>
                     </Col>
                 ))}
             </Row>
-
-            {/* CONFIG MODAL */}
-            <Modal show={!!selectedType} onHide={() => setSelectedType(null)} centered>
-                <Modal.Header closeButton>
-                    <Modal.Title>Configure {selectedType?.name}</Modal.Title>
-                </Modal.Header>
-
-                <Modal.Body>
-                    <Form>
-                        {selectedType?.config?.map((cfg, index) => (
-                            <Form.Group className="mb-3" key={index}>
-                                <Form.Label>{cfg.label}</Form.Label>
-
-                                <Form.Control
-                                    type={cfg.type === "integer" ? "number" : "text"}
-                                    value={formState[cfg.field] || ""}
-                                    onChange={(e) => handleChange(cfg.field, e.target.value)}
-                                />
-                            </Form.Group>
-                        ))}
-                    </Form>
-                </Modal.Body>
-
-                <Modal.Footer>
-                    <Button className="pink-button" onClick={handleSave}>
-                        Save
-                    </Button>
-                </Modal.Footer>
-            </Modal>
 
         </Container>
     );
