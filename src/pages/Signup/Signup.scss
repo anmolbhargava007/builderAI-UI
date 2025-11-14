@@ -1,0 +1,82 @@
+.signup-page{
+    height: 100vh;
+	  background-image: url('../../assets/Background.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button{
+    background-color: #FF0087 !important;
+    color:#FFFFFF !important;
+    font-weight: 500;
+    border-radius: 8px;
+}
+.signup-form{
+    background-color: #FFFFFF;
+    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.16);
+    max-width: 480px;
+    padding: 15px 24px;
+    border-radius: 24px;
+     /* margin-top:23px; */
+}
+.custom-input {
+    border: 2px solid #6A6B6C;
+    border-radius: 8px;
+    padding-left: 8px; 
+    margin-top: 0;
+  }
+.label-heading{
+  color: black !important
+}
+.input-field{
+  border: 1px #FF0087 solid !important;
+}
+.input-field.Mui-focused {
+  border: 1px #FF0087 solid !important;
+  box-shadow: 0 0 0 1px #FF0087 !important;
+}
+.country-code-select.Mui-focused{
+  outline: none !important;
+  box-shadow: none !important;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+  }
+  .custom-hr {
+    flex: 1; 
+    border: 0; 
+    border-top: 2px solid #6A6B6C; 
+  } 
+  .ms-logo{
+    width:20px;
+    margin-right: 6px;
+  }
+  .MicrosoftButton{
+    background-color: rgba(7, 8, 10, 1) !important;
+  }
+  
+  .dot-loader {
+    display: flex;
+    gap: 5px;
+  }
+
+  @media (max-width: 1020px){
+      .login-page{
+        flex-direction: column;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,76 @@
+.stat-box {
+  background-color: #E7E7E7;
+  border-radius: 20px;
+  text-align: center;
+
+  .stat-title {
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin-bottom: 0;
+    line-height: 1.2;
+  }
+
+  .subtitle-space {
+    height: 14px; // Adjust to match actual subtitle height + margin
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 10px;
+
+  }
+
+
+.stat-value {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-weight: 600;
+  font-size: 4.2rem;
+}
+
+.stat-int {
+  font-size: 4.2rem;
+  background: linear-gradient(90deg, #FF0087, #6DC8D1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-decimal {
+  font-size: 2.1rem;
+  position: relative;
+  top: 10px;
+  color: #FF0087; // Now this will be visible
+}
+
+
+/* ---- type‑specific colors ---- */
+.dev {
+ color: #FF0087;          // Dev = silver
+}
+
+.prod {
+ color: #FF0087;       // Prod = pink (adjust if you prefer)
+}
+
+
+}
+
+.date-input {
+  border: 1px solid #FF0087 !important;
+  width: 300px;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px #FF0087;
+  }
+
+  &::placeholder {
+    color: #999;
+    font-weight: 400;
+  }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}

@@ -1,0 +1,177 @@
+.canvasContainer {
+  display: flex;
+  height: 88vh;
+  width: 100%;
+  position: relative;
+  flex-grow: 1;
+
+  // Reusable box style
+  %floating-box {
+    position: absolute;
+    z-index: 10;
+    background-color: #fff !important;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.08) !important;
+    cursor: pointer;
+  }
+
+  %circle-icon {
+    @extend %floating-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50%;
+  }
+
+  .plus-icon {
+    @extend %circle-icon;
+    top: 16px;
+    right: 16px;
+  }
+
+  .back-icon {
+    @extend %circle-icon;
+    top: 16px;
+    left: 16px;
+  }
+
+  .agent-name {
+    @extend %floating-box;
+    padding: 8px;
+    border-radius: 24px;
+    // text-align: center ;
+    top: 16px;
+    left: 70px;
+    width: 240px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 100%;
+    font-weight: bold;
+    font-size: 14px;
+}
+  
+
+  .versionDropdown {
+    @extend %floating-box;
+    padding: 8px;
+    border-radius: 24px;
+    top: 16px;
+    left: 320px;
+  }
+
+  .test-setting {
+    @extend %floating-box;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 8px;
+    border-radius: 24px;
+    top: 16px;
+    right: 150px;
+  }
+
+  .action {
+    top: 16px;
+    right: 70px;
+    position: absolute;
+    z-index: 10;
+    padding: 8px;
+    border-radius: 24px;
+    background-color: rgba(255, 0, 135, 1);
+    box-shadow: 2px 2px 8px rgba(255, 0, 135, 0.32);
+    color: #fff;
+    cursor: pointer ;
+  }
+
+  .menu {
+    position: absolute;
+    top: 48px;
+    right: 70px;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+
+    div {
+      padding: 4px 8px;
+      cursor: pointer;
+    }
+  }
+}
+/* ------------------------- CUSTOM NODE CSS -----------------------------------*/
+
+.customNode {
+  width: 200px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.16);
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  padding: 5px;
+  cursor: pointer;
+  transform: scale(0.9);
+  overflow: visible !important;
+  z-index: 10;
+  display: inline-block;
+
+  .node-controll {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+
+    .node-label {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      min-width: 0; // enables ellipsis on flex children
+
+      img {
+        width: 20px;
+        margin-right: 4px;
+        flex-shrink: 0;
+      }
+
+      .node-name {
+        font-size: 13px;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        max-width: 200px; 
+      }
+    }
+  }
+
+
+}
+.react-flow__handle {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 4px; 
+}
+
+.startNode{
+  width: 100px;
+}
+
+.chatmanager-dropdown{
+    background-color:#f5f5f5 ;
+    border:1px solid #ccc ;
+    border-radius: 6px;
+}
+.chatManagerNode{
+  width: 300px;
+  height: 200px;
+  border: 1px dashed #666;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+

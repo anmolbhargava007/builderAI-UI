@@ -1,0 +1,131 @@
+{
+    "loaders": [
+      {
+        "id": "vector-db",
+        "name": "Vector Database",
+        "icon": "database",
+        "types": [
+          {
+            "id": "pinecone",
+            "name": "Pinecone",
+            "config": [
+              { "field": "apiKey", "label": "API Key", "type": "text" },
+              {
+                "field": "environment",
+                "label": "Environment",
+                "type": "select",
+                "options": ["us-east1", "us-west1", "eu-west1", "asia-southeast1"]
+              },
+              { "field": "indexName", "label": "Index Name", "type": "text" }
+            ]
+          },
+          {
+            "id": "chroma",
+            "name": "Chroma",
+            "config": [
+              { "field": "host", "label": "Host URL", "type": "text" },
+              { "field": "collection", "label": "Collection Name", "type": "text" }
+            ]
+          },
+          {
+            "id": "weaviate",
+            "name": "Weaviate",
+            "config": [
+              { "field": "apiKey", "label": "API Key", "type": "text" },
+              {
+                "field": "scheme",
+                "label": "Scheme",
+                "type": "select",
+                "options": ["http", "https"]
+              },
+              { "field": "host", "label": "Host URL", "type": "text" }
+            ]
+          },
+          {
+            "id": "faiss",
+            "name": "FAISS",
+            "config": [
+              { "field": "filePath", "label": "Local File Path", "type": "text" }
+            ]
+          }
+        ]
+      },
+  
+      {
+        "id": "google-drive",
+        "name": "Google Drive",
+        "icon": "gdrive",
+        "types": [
+          {
+            "id": "folder",
+            "name": "Drive Folder",
+            "config": [
+              { "field": "folderId", "label": "Folder ID", "type": "text" },
+              { "field": "serviceAccount", "label": "Service Account JSON", "type": "textarea" }
+            ]
+          },
+          {
+            "id": "file",
+            "name": "Drive File",
+            "config": [
+              { "field": "fileId", "label": "File ID", "type": "text" },
+              { "field": "serviceAccount", "label": "Service Account JSON", "type": "textarea" }
+            ]
+          }
+        ]
+      },
+  
+      {
+        "id": "slack",
+        "name": "Slack",
+        "icon": "slack",
+        "types": [
+          {
+            "id": "channel",
+            "name": "Slack Channel",
+            "config": [
+              { "field": "botToken", "label": "Bot Token", "type": "text" },
+              { "field": "channelId", "label": "Channel ID", "type": "text" }
+            ]
+          },
+          {
+            "id": "messages",
+            "name": "Slack Messages",
+            "config": [
+              { "field": "botToken", "label": "Bot Token", "type": "text" },
+              {
+                "field": "limit",
+                "label": "Message Limit",
+                "type": "select",
+                "options": ["10", "50", "100", "500"]
+              }
+            ]
+          }
+        ]
+      },
+  
+      {
+        "id": "notion",
+        "name": "Notion",
+        "icon": "notion",
+        "types": [
+          {
+            "id": "page",
+            "name": "Notion Page",
+            "config": [
+              { "field": "apiKey", "label": "Integration Token", "type": "text" },
+              { "field": "pageId", "label": "Page ID", "type": "text" }
+            ]
+          },
+          {
+            "id": "database",
+            "name": "Notion Database",
+            "config": [
+              { "field": "apiKey", "label": "Integration Token", "type": "text" },
+              { "field": "databaseId", "label": "Database ID", "type": "text" }
+            ]
+          }
+        ]
+      }
+    ]
+  }  

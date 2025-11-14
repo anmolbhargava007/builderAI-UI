@@ -1,0 +1,32 @@
+.modal-content{
+    background-color:rgba(255, 255, 255, 1) ;
+    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.16);
+    border-radius: 32px;
+}
+.modal-header .modal-title {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.modal-header .modal-title img {
+  width: 40px;
+  margin-right: 8px;
+}
+.modal-label{
+font-weight: 500;
+line-height: 24px;
+}
+.modal-input{
+  border: 2px solid rgba(106, 107, 108, 1)!important;
+}
+.required-asterisk {
+  color: red;
+  margin-left: 4px;
+}
+.modal-section-heading{
+  font-weight: 500;
+  font-size: 18px;
+}
+
+

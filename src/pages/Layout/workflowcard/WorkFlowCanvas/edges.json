@@ -1,0 +1,28 @@
+[
+    {
+        "id": "edge-0-1-1748937243684",
+        "source": "0",
+        "sourceHandle": "right-outgoing",
+        "target": "1",
+        "targetHandle": "left-incoming",
+        "style": {
+            "strokeWidth": 2
+        },
+        "markerEnd": {
+            "type": "arrowclosed"
+        }
+    },
+    {
+        "id": "edge-1-3-1748937380923",
+        "source": "1",
+        "sourceHandle": "right-outgoing",
+        "target": "3",
+        "targetHandle": "left-incoming",
+        "style": {
+            "strokeWidth": 2
+        },
+        "markerEnd": {
+            "type": "arrowclosed"
+        }
+    }
+]

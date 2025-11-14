@@ -1,35 +1,24 @@
-import { useSelector } from 'react-redux'
+// import { BrowserRouter as Router } from 'react-router-dom'
+// import Signup from './Pages/Signup/Signup'
+ import Login from './pages/Login/Login';
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import Welcomepage from './welcome/Welcomepage';
+import './App.css'
+import { ToastProvider } from './context/ToastContext';
+import AllRoutes from '../AllRoutes';
+function App() {
+  return (
+    <>
+    <ToastProvider>
 
-import { ThemeProvider } from '@mui/material/styles'
-import { CssBaseline, StyledEngineProvider } from '@mui/material'
+            {/* <Welcomepage /> */}
+            {/* <Navbar/> */}
+           <AllRoutes/>
+    </ToastProvider>
 
-// routing
-import Routes from '@/routes'
-
-// defaultTheme
-import themes from '@/themes'
-
-// project imports
-import NavigationScroll from '@/layout/NavigationScroll'
-import { AuthProvider } from '@/contexts/AuthContext'
-
-// ==============================|| APP ||============================== //
-
-const App = () => {
-    const customization = useSelector((state) => state.customization)
-
-    return (
-        <StyledEngineProvider injectFirst>
-            <ThemeProvider theme={themes(customization)}>
-                <CssBaseline />
-                <AuthProvider>
-                    <NavigationScroll>
-                        <Routes />
-                    </NavigationScroll>
-                </AuthProvider>
-            </ThemeProvider>
-        </StyledEngineProvider>
-    )
+    </>
+  )
 }
 
-export default App
+export default App ;

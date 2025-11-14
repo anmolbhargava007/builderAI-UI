@@ -1,0 +1,91 @@
+.sidebar {
+  width: 250px;
+  margin-left: 5px;
+  transition: width 0.6s ease;
+  height: 100vh;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 6px 12px 12px 0px rgba(0, 0, 0, 0.05);
+  color: rgba(92, 41, 68, 1);
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+  padding: 2px 12px;
+  justify-content: space-between;
+
+  .user-logo {
+    margin: -12px !important;
+  }
+
+  &.collapsed {
+    width: 50px;
+    align-items: center;
+
+    .navbar-text {
+      justify-content: center;
+    }
+  }
+
+
+}
+
+.sidebar-icon {
+  color: rgba(82, 83, 84, 1);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.bottom-text {
+  font-size: 12px;
+  color: rgba(7, 8, 10, 1);
+  font-weight: 500;
+}
+
+.config-section-header {
+  margin: 16px 0 8px 0;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(92, 41, 68, 0.2);
+  
+  span {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(92, 41, 68, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+.config-section {
+  .config-section-header {
+    margin: 16px 0 8px 0;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(92, 41, 68, 0.2);
+    cursor: default;
+    
+    span {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(92, 41, 68, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+  
+  .config-subsection {
+    margin-left: 20px;
+    
+    .config-item {
+      margin-left: 0;
+      padding-left: 8px;
+      border-left: 2px solid rgba(92, 41, 68, 0.1);
+      
+      &:hover {
+        border-left-color: rgba(92, 41, 68, 0.3);
+      }
+      
+      &.navbar-item-active {
+        border-left-color: rgba(92, 41, 68, 0.8);
+      }
+    }
+  }
+}

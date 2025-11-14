@@ -1,0 +1,53 @@
+.customNode.ifElseNode {
+  width: 250px;
+  min-height: 120px;
+  padding: 8px;
+
+  .conditions-display {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #eee;
+
+    .condition-item {
+      position: relative;
+      margin-bottom: 8px;
+      padding: 6px 8px;
+      background-color: #f8f9fa;
+      border-radius: 6px;
+      border: 1px solid #e9ecef;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: #e9ecef;
+        border-color: #adb5bd;
+      }
+
+      .condition-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        flex: 1;
+        margin-right: 20px; // Space for the handle
+
+        .condition-label {
+          font-size: 11px;
+          font-weight: bold;
+          color: #495057;
+        }
+
+        .condition-text {
+          font-size: 10px;
+          color: #6c757d;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+  }
+} 

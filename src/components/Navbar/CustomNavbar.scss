@@ -1,0 +1,59 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-logo {
+    width: 160px;
+    height: auto;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.navbar-text {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #5C2944;
+    text-decoration: none;
+}
+
+.navbar-item-active {
+    background-color: #FF008A !important;
+    color: white !important;
+    width: auto;
+    height: 35px;
+    border-radius: 4px;
+    text-align: center;
+    padding: 5px 5px;
+}
+
+.navbar-user {
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+
+
+
+.admin-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: white;
+    color: #FF0087;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0px 2px 10px rgba(0.5, 0.5, 0.5, 0.5);
+    /* Added box shadow */
+}

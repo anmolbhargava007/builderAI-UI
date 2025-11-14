@@ -1,0 +1,56 @@
+.card-container {
+    position: absolute !important;
+    top: 15% !important;
+    right: 1% !important;
+    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.16) !important;
+    border-radius: 14px;
+    max-height: 70vh;
+    background-color: rgba(255, 255, 255, 1);
+    width: 300px;
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+.accordion-body{
+    padding: 0px 20px 10px 20px;
+}
+
+.accordion-button {
+    font-weight: 700;
+    font-size: 18px;
+    padding: 6px 12px !important;
+    box-shadow: none !important; 
+    background-color: initial !important;
+}
+
+.agent-option {
+    cursor: pointer;
+    font-size: 15px;
+    // padding: 0 !important;
+}
+hr{
+    margin: 8px 2px !important;
+}
+
+
+
+
+.custom-divider {
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(106, 107, 108, 1);
+}
+
+.group-manager {
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 6px 8px;
+    border-radius: 12px;
+    margin-top: 0px !important;
+    border: 1px solid rgba(106, 107, 108, 1);
+}
+.accordion,
+.accordion-item {
+  border: none !important;
+}
+
