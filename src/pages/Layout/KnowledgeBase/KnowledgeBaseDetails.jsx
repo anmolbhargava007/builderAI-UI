@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Card, Container, Row, Col, Button, Spinner } from 'react-bootstrap';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useKnowledgeBaseContext } from '../../../context/KnowledgeBase';
@@ -8,7 +8,11 @@ const API_BASE_URL = import.meta.env.VITE_API_URL;
 const KnowledgeBaseDetails = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const { loaderList, loading, error } = useKnowledgeBaseContext();
+    const { loaderList, loading, error, refetch } = useKnowledgeBaseContext();
+
+    useEffect(() => {
+        refetch();
+    }, []);
 
     if (loading) return <p className="p-4"><Spinner size="sm" /> Loading...</p>;
     if (error) return <p className="p-4 text-danger">Error: {error}</p>;
