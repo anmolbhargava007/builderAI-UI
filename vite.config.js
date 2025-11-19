@@ -13,7 +13,7 @@ export default defineConfig(({ command, mode }) => {
       },
     },
     server: {
-      port: 3000,
+      port: 8080,
       host: true,
     },
     define: {
