@@ -98,10 +98,7 @@ export const KnowledgeBaseProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    fetchKnowledgeBase();
-    fetchKnowledgeBaseList();
-  }, []);
+  // APIs are now called from components, not on provider mount
 
   const value = {
     loaderList,
