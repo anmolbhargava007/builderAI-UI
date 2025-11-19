@@ -16,7 +16,8 @@ import KnowledgeBase from "./src/pages/Layout/KnowledgeBase/KnowledgeBase";
 import KnowledgeBaseDetails from "./src/pages/Layout/KnowledgeBase/KnowledgeBaseDetails";
 import KnowledgeBaseConfig from "./src/pages/Layout/KnowledgeBase/KnowledgeBaseConfig";
 
-import AppProviders from "./src/context/AppProviders";
+import { KnowledgeBaseProvider } from "./src/context/KnowledgeBase";
+import { Outlet } from "react-router-dom";
 import KnowledgeBaseConfigEdit from "./src/pages/Layout/KnowledgeBase/KnowledgeBaseConfigEdit";
 
 const AllRoutes = ({ msalInstance, signOutClickHandler }) => {
@@ -31,36 +32,36 @@ const AllRoutes = ({ msalInstance, signOutClickHandler }) => {
   }
 
   return (
-    <AppProviders>
-      <Routes>
-        <Route path="/" element={initialElement} />
-        <Route path="/login" element={<Login msalInstance={msalInstance} />} />
+    <Routes>
+      <Route path="/" element={initialElement} />
+      <Route path="/login" element={<Login msalInstance={msalInstance} />} />
 
-        <Route path="home"
-          element={
-            <ProtectedRoute redirectTo="/">
-              <Layout signOutClickHandler={signOutClickHandler} />
-            </ProtectedRoute>
-          }
-        >
-          <Route index element={<Home />} />
-          <Route path="workflow" element={<Workflow />} />
-          <Route path="transaction" element={<Transaction />} />
-          <Route path="exploreTools" element={<ExploreTools />} />
-          <Route path="uploadData" element={<UploadData />} />
-          <Route path="user" element={<User />} />
-          <Route path="aicompanymodels" element={<AICompanyModel />} />
-          <Route path="aicompanymodelproviders" element={<AICompanyProvider />} />
+      <Route path="home"
+        element={
+          <ProtectedRoute redirectTo="/">
+            <Layout signOutClickHandler={signOutClickHandler} />
+          </ProtectedRoute>
+        }
+      >
+        <Route index element={<Home />} />
+        <Route path="workflow" element={<Workflow />} />
+        <Route path="transaction" element={<Transaction />} />
+        <Route path="exploreTools" element={<ExploreTools />} />
+        <Route path="uploadData" element={<UploadData />} />
+        <Route path="user" element={<User />} />
+        <Route path="aicompanymodels" element={<AICompanyModel />} />
+        <Route path="aicompanymodelproviders" element={<AICompanyProvider />} />
 
-          <Route path="knowledgebase" element={<KnowledgeBase />} />
-          <Route path="knowledgebase/:id" element={<KnowledgeBaseDetails />} />
-          <Route path="knowledgebase/:id/:typeId" element={<KnowledgeBaseConfig />} />
-          <Route path="knowledgebase/edit/:kbtype/:kbId" element={<KnowledgeBaseConfigEdit />}/>
+        <Route path="knowledgebase" element={<KnowledgeBaseProvider><Outlet /></KnowledgeBaseProvider>}>
+          <Route index element={<KnowledgeBase />} />
+          <Route path=":id" element={<KnowledgeBaseDetails />} />
+          <Route path=":id/:typeId" element={<KnowledgeBaseConfig />} />
+          <Route path="edit/:kbtype/:kbId" element={<KnowledgeBaseConfigEdit />}/>
         </Route>
+      </Route>
 
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </AppProviders>
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
 };
 
